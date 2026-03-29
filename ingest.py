@@ -28,7 +28,7 @@ class VoyageEmbeddingFunction(EmbeddingFunction):
         result = voyage_client.embed(input, model="voyage-2")
         return result.embeddings
 
-chroma_client = chromadb.PersistentClient(path="./chroma_db")
+chroma_client = chromadb.PersistentClient(path="/data/chroma_db")
 
 try:
     chroma_client.delete_collection("psi_bot")

@@ -9,7 +9,7 @@ load_dotenv()
 
 VOYAGE_API_KEY = os.getenv("VOYAGE_API_KEY")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
-CHROMA_DIR = os.getenv("CHROMA_DIR", "./chroma_db")
+CHROMA_DIR = os.getenv("CHROMA_DIR", "/data/chroma_db")
 
 voyage_client = voyageai.Client(api_key=VOYAGE_API_KEY)
 anthropic_client = Anthropic(api_key=ANTHROPIC_API_KEY)
