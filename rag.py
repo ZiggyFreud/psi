@@ -9,39 +9,35 @@ load_dotenv()
 
 VOYAGE_API_KEY = os.getenv("VOYAGE_API_KEY")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
-CHROMA_DIR = os.getenv("CHROMA_DIR", "/data/chroma_db")
+
+FALLBACK = "This product may not be part of our current offerings as it is not listed on our site. However, you can always call us at 1-800-947-9422."
 
 voyage_client = voyageai.Client(api_key=VOYAGE_API_KEY)
 anthropic_client = Anthropic(api_key=ANTHROPIC_API_KEY)
-
-FALLBACK = "This product may not be part of our current offerings as it is not listed on our site. However, you can always call us at 1-800-947-9422."
 
 class VoyageEmbeddingFunction(EmbeddingFunction):
     def __call__(self, input):
         result = voyage_client.embed(input, model="voyage-2")
         return result.embeddings
 
-_collection = None
+CHROMA_DIR = os.getenv("CHROMA_DIR", "/data/chroma_db")
+os.makedirs(CHROMA_DIR, exist_ok=True)
 
-def get_collection():
-    global _collection
-    if _collection is None:
-        chroma_client = chromadb.PersistentClient(path=CHROMA_DIR)
-        _collection = chroma_client.get_or_create_collection(
-            name="psi_bot",
-            embedding_function=VoyageEmbeddingFunction()
-        )
-    return _collection
+chroma_client = chromadb.PersistentClient(path=CHROMA_DIR)
+collection = chroma_client.get_or_create_collection(
+    name="psi_bot",
+    embedding_function=VoyageEmbeddingFunction()
+)
 
 def query_rag(user_message):
-    collection = get_collection()
-
-    results = collection.query(
-        query_texts=[user_message],
-        n_results=5
-    )
-
-    docs = results["documents"][0] if results["documents"] else []
+    try:
+        results = collection.query(
+            query_texts=[user_message],
+            n_results=5
+        )
+        docs = results["documents"][0] if results["documents"] else []
+    except Exception:
+        return FALLBACK
 
     if not docs:
         return FALLBACK
