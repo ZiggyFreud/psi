@@ -41,4 +41,19 @@ def chat():
     rep_answer = lookup_rep(user_message)
     if rep_answer is not None:
         ack = get_response("acknowledging_a_question")
-        return
+        return jsonify({"answer": f"{ack}\n\n{rep_answer}"})
+
+    answer = query_rag(user_message)
+
+    if is_fallback(answer):
+        return jsonify({"answer": get_response("cannot_answer")})
+
+    ack = get_response("acknowledging_a_question")
+    return jsonify({"answer": f"{ack} {answer}"})
+
+@app.route("/health", methods=["GET"])
+def health():
+    return jsonify({"status": "ok"})
+
+if __name__ == "__main__":
+    app.run(debug=True)
