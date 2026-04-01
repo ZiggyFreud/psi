@@ -98,6 +98,9 @@ def format_rep(entry: dict) -> str:
     if entry.get("region_notes"):
         lines.append(f"Note: {entry['region_notes']}")
     return "\n".join(lines)
+    
+# Reverse map full names back to abbreviations for index lookup
+_full_to_abbrev = {v: k.upper() for k, v in _state_aliases.items() if len(k) == 2}
 
 def lookup_rep(message: str) -> str | None:
     if not has_rep_intent(message):
@@ -105,8 +108,15 @@ def lookup_rep(message: str) -> str | None:
     state = detect_state(message)
     if not state:
         return None
+
+    # Try full name first, then abbreviation
     rep_ids = _state_index.get(state, [])
     if not rep_ids:
+        abbrev = _full_to_abbrev.get(state, "")
+        rep_ids = _state_index.get(abbrev, [])
+
+    if not rep_ids:
         return NO_REP_RESPONSE
+
     rep_blocks = [format_rep(_entries[rid]) for rid in rep_ids if rid in _entries]
     return "\n\n".join(rep_blocks)
