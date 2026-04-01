@@ -1,1 +1,99 @@
-# paste rep_lookup.py contents here
+import json
+import re
+
+with open("dealers_and_reps.json", "r") as f:
+    _data = json.load(f)
+
+_entries = {entry["id"]: entry for entry in _data["entries"]}
+_state_index = _data["state_to_rep_index"]
+
+_state_aliases = {
+    "new mexico": "New Mexico", "nm": "New Mexico",
+    "south carolina": "South Carolina", "sc": "South Carolina",
+    "north carolina": "North Carolina", "nc": "North Carolina",
+    "new york": "New York", "ny": "New York",
+    "new jersey": "New Jersey", "nj": "New Jersey",
+    "new hampshire": "New Hampshire", "nh": "New Hampshire",
+    "west virginia": "West Virginia", "wv": "West Virginia",
+    "north dakota": "North Dakota", "nd": "North Dakota",
+    "south dakota": "South Dakota", "sd": "South Dakota",
+    "rhode island": "Rhode Island", "ri": "Rhode Island",
+    "connecticut": "Connecticut", "ct": "Connecticut",
+    "massachusetts": "Massachusetts", "ma": "Massachusetts",
+    "michigan": "Michigan", "mi": "Michigan",
+    "minnesota": "Minnesota", "mn": "Minnesota",
+    "mississippi": "Mississippi", "ms": "Mississippi",
+    "missouri": "Missouri", "mo": "Missouri",
+    "montana": "Montana", "mt": "Montana",
+    "nebraska": "Nebraska", "ne": "Nebraska",
+    "nevada": "Nevada", "nv": "Nevada",
+    "ohio": "Ohio", "oh": "Ohio",
+    "oklahoma": "Oklahoma", "ok": "Oklahoma",
+    "oregon": "Oregon", "or": "Oregon",
+    "pennsylvania": "Pennsylvania", "pa": "Pennsylvania",
+    "tennessee": "Tennessee", "tn": "Tennessee",
+    "texas": "Texas", "tx": "Texas",
+    "utah": "Utah", "ut": "Utah",
+    "vermont": "Vermont", "vt": "Vermont",
+    "virginia": "Virginia", "va": "Virginia",
+    "washington": "Washington", "wa": "Washington",
+    "wisconsin": "Wisconsin", "wi": "Wisconsin",
+    "wyoming": "Wyoming", "wy": "Wyoming",
+    "alabama": "Alabama", "al": "Alabama",
+    "alaska": "Alaska", "ak": "Alaska",
+    "arizona": "Arizona", "az": "Arizona",
+    "arkansas": "Arkansas", "ar": "Arkansas",
+    "california": "California", "ca": "California",
+    "colorado": "Colorado", "co": "Colorado",
+    "delaware": "Delaware", "de": "Delaware",
+    "florida": "Florida", "fl": "Florida",
+    "georgia": "Georgia", "ga": "Georgia",
+    "hawaii": "Hawaii", "hi": "Hawaii",
+    "idaho": "Idaho", "id": "Idaho",
+    "illinois": "Illinois", "il": "Illinois",
+    "indiana": "Indiana", "in": "Indiana",
+    "iowa": "Iowa", "ia": "Iowa",
+    "kansas": "Kansas", "ks": "Kansas",
+    "kentucky": "Kentucky", "ky": "Kentucky",
+    "louisiana": "Louisiana", "la": "Louisiana",
+    "maine": "Maine", "me": "Maine",
+    "maryland": "Maryland", "md": "Maryland"
+}
+
+NO_REP_RESPONSE = (
+    "For assistance finding a representative in your area, "
+    "please call us at 1-800-947-9422."
+)
+
+def detect_state(message: str) -> str | None:
+    msg = message.lower()
+    for alias in sorted(_state_aliases.keys(), key=len, reverse=True):
+        pattern = r'\b' + re.escape(alias) + r'\b'
+        if re.search(pattern, msg):
+            return _state_aliases[alias]
+    return None
+
+def format_rep(entry: dict) -> str:
+    phones = " | ".join(
+        f"{p['type'].capitalize()}: {p['number']}" for p in entry["phone"]
+    )
+    lines = [
+        f"{entry['company']}",
+        f"Contact: {entry['contact_name']}",
+        f"Type: {entry['type'].capitalize()}",
+        f"Phone: {phones}",
+        f"Email: {entry['email']}",
+    ]
+    if entry.get("region_notes"):
+        lines.append(f"Note: {entry['region_notes']}")
+    return "\n".join(lines)
+
+def lookup_rep(message: str) -> str | None:
+    state = detect_state(message)
+    if not state:
+        return None
+    rep_ids = _state_index.get(state, [])
+    if not rep_ids:
+        return NO_REP_RESPONSE
+    rep_blocks = [format_rep(_entries[rid]) for rid in rep_ids if rid in _entries]
+    return "\n\n".join(rep_blocks)
