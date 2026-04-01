@@ -7,6 +7,12 @@ with open("dealers_and_reps.json", "r") as f:
 _entries = {entry["id"]: entry for entry in _data["entries"]}
 _state_index = _data["state_to_rep_index"]
 
+REP_INTENT_KEYWORDS = [
+    "rep", "representative", "dealer", "contact", "who covers",
+    "who is", "who's", "sales", "territory", "region", "area",
+    "covers", "covering", "find", "locate", "get in touch"
+]
+
 _state_aliases = {
     "new mexico": "New Mexico", "nm": "New Mexico",
     "south carolina": "South Carolina", "sc": "South Carolina",
@@ -20,6 +26,7 @@ _state_aliases = {
     "rhode island": "Rhode Island", "ri": "Rhode Island",
     "connecticut": "Connecticut", "ct": "Connecticut",
     "massachusetts": "Massachusetts", "ma": "Massachusetts",
+    "michigan upper peninsula": "Michigan Upper Peninsula",
     "michigan": "Michigan", "mi": "Michigan",
     "minnesota": "Minnesota", "mn": "Minnesota",
     "mississippi": "Mississippi", "ms": "Mississippi",
@@ -65,6 +72,10 @@ NO_REP_RESPONSE = (
     "please call us at 1-800-947-9422."
 )
 
+def has_rep_intent(message: str) -> bool:
+    msg = message.lower()
+    return any(keyword in msg for keyword in REP_INTENT_KEYWORDS)
+
 def detect_state(message: str) -> str | None:
     msg = message.lower()
     for alias in sorted(_state_aliases.keys(), key=len, reverse=True):
@@ -89,6 +100,8 @@ def format_rep(entry: dict) -> str:
     return "\n".join(lines)
 
 def lookup_rep(message: str) -> str | None:
+    if not has_rep_intent(message):
+        return None
     state = detect_state(message)
     if not state:
         return None
