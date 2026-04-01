@@ -1,5 +1,5 @@
 {
-  "dataset": "PSI Bot – Polite Response Library",
+  "dataset": "PSI Bot - Polite Response Library",
   "version": "1.0",
   "last_updated": "2026-03-31",
   "usage_note": "Randomly select one response from the appropriate category for each interaction. Use {name} as an optional placeholder if the user's name is known.",
@@ -15,7 +15,7 @@
         "Hi! Happy to help. What brings you in today?",
         "Hello and welcome! What can I do for you?",
         "Hey there! How can I make your day a little easier?",
-        "Hi! I'm your PSI assistant. Let's get started — what do you need?",
+        "Hi! I'm your PSI assistant. Let's get started - what do you need?",
         "Welcome to PSI! I'm here to help. What's your question?"
       ]
     },
@@ -23,26 +23,50 @@
       "description": "Use immediately after a user asks a question, before delivering the answer.",
       "responses": [
         "Great question! Let me look into that for you.",
-        "Good question — here's what I've got for you.",
+        "Good question - here's what I've got for you.",
         "Thanks for asking! Here's the information you need.",
         "Absolutely, happy to help with that.",
         "Of course! Let me pull that up for you.",
-        "Sure thing — here's what I found.",
+        "Sure thing - here's what I found.",
         "No problem at all! Here's what you're looking for.",
         "I'm on it! Here's the answer.",
-        "That's a helpful thing to know — here you go.",
+        "That's a helpful thing to know - here you go.",
         "Happy to clarify that for you.",
         "Good thinking to ask. Here's the detail on that.",
         "Totally understandable question. Here's the scoop."
       ]
     },
     "thanking_the_user": {
-      "description": "Use to express appreciation — after a user provides info, gives feedback, or is patient.",
+      "description": "Use to express appreciation - after a user provides info, gives feedback, or is patient.",
       "responses": [
-        "Thank you for sharing that — really helpful!",
+        "Thank you for sharing that - really helpful!",
         "I appreciate you letting me know.",
-        "Thanks so much for the detail — that helps a lot.",
+        "Thanks so much for the detail - that helps a lot.",
         "That's great to know, thank you!",
         "Thank you for your patience.",
-        "Much appreciated — thanks for bearing with me.",
-        "Thanks for clarifying! That makes things
+        "Much appreciated - thanks for bearing with me.",
+        "Thanks for clarifying! That makes things much clearer.",
+        "Really appreciate you taking the time to explain that.",
+        "Thank you - that's exactly what I needed to help you.",
+        "I appreciate the feedback, thank you!",
+        "Thanks a bunch - good to have that context.",
+        "Very kind of you, thank you!"
+      ]
+    },
+    "cannot_answer": {
+      "description": "Use when the bot doesn't have enough information, the question is out of scope, or it needs to escalate.",
+      "responses": [
+        "That's a great question, but I don't have that information handy. I'd recommend reaching out to your PSI rep directly.",
+        "I'm not sure I have the right answer for that one. Your best bet would be to contact PSI directly.",
+        "Hmm, that one's a bit outside what I can help with right now. A PSI team member would be better suited to answer.",
+        "I want to make sure you get the right answer - this one's best handled by your rep. Would you like their contact info?",
+        "I don't want to guess on that one! Please reach out to your PSI contact for the most accurate info.",
+        "That's a bit beyond what I have access to - I wouldn't want to steer you wrong. Let's get you to the right person.",
+        "I appreciate you asking, but I'm not able to provide a reliable answer on that. A quick call to PSI will get you sorted.",
+        "Great question, though I'm limited in what I can confirm on that. Your rep will have the full picture.",
+        "I don't have enough details to answer that one confidently. I'd hate to give you incorrect info - please check with PSI directly.",
+        "That's outside my knowledge on this one, but don't worry - the PSI team will have exactly what you need."
+      ]
+    }
+  }
+}
