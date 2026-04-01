@@ -1,0 +1,428 @@
+{
+    "dataset": "PSI Panel System Product Specifications",
+    "version": "1.0",
+    "last_updated": "2026-03-31",
+    "manufacturer": {
+      "name": "Panel Specialists, Inc.",
+      "address": "3115 Range Rd., Temple, TX 76504",
+      "phone_tollfree": "800-947-9422",
+      "phone_local": "254-774-9800",
+      "fax": "254-598-3222",
+      "email": "psiwalls@panelspec.com",
+      "website": "http://www.panelspec.com"
+    },
+    "shared_specifications": {
+      "note": "The following applies to all standard panel systems (310, 310EB, 312, 314, 410, 412, 631, 632 and combo variants) unless otherwise noted.",
+      "panel_thickness": "7/16 inches (11.1 mm)",
+      "molding_material": "0.062 inch thick 6063 alloy aluminum with T5 temper",
+      "fire_ratings": [
+        "ASTM E84 Class A (fire-rated particleboard core required)",
+        "ASTM E84 Class B (standard M2 particleboard core)"
+      ],
+      "panel_core": "Industrial grade M2 particleboard for Class B; fire-rated particleboard for Class A",
+      "max_horizontal_panel_length": "96 inches (2438 mm)",
+      "laminate_suppliers": ["Wilsonart", "Formica", "Nevamar", "Pionite", "Arborite"],
+      "surface_material_options": [
+        "High Pressure Decorative Laminate (HPL) — meets NEMA LD3-2005",
+        "Custom Graphic High-Pressure Laminate (CHPL) — photographs or graphic images",
+        "Wood Veneer — HPVA Architectural Grade A or better, UV coating gloss or satin finish",
+        "New Leaf High Performance Veneer — 0.030 inch thick, polyurethane matte or semi-gloss finish",
+        "Bulletin Board / Tack Board — linoleum with linseed oil, cork, resin binders on jute backing",
+        "Acoustical Panel — 0.5 inch thick 100% polyester fiber, NRC 0.45, ASTM E84 Class A",
+        "Marker Board (Dry Erase) — magnetic porcelain enamel steel"
+      ],
+      "installation_methods": [
+        "Counter sunk screws",
+        "Masonry anchors over CMU substrates",
+        "Panel mastic (S-bead) over gypsum board or CMU",
+        "Construction staples into wood, gypsum board, or wood slats"
+      ],
+      "installation_requirements": {
+        "cutting_tools": "Carbide tools required for field cutting",
+        "face_penetrations": "Minimum 1/8 inch (3mm) radius in corners per NEMA LD3-2005",
+        "subwall_flatness": "Within 1/8 inch in 10 feet (1/960th of span)",
+        "acclimation": "Minimum 48 hours at 60-80°F and 50-60% relative humidity before installation",
+        "moisture_barrier": "Plastic film barrier required when paneling is on exterior wall or in wet area"
+      },
+      "warranty": "1 year from date of original purchase against defects in materials or workmanship"
+    },
+    "systems": [
+      {
+        "id": "clicwall",
+        "name": "Clicwall Modular Wall Cladding",
+        "manufacturer_brand": "UNILIN Group, provided by Panel Specialists, Inc.",
+        "description": "Progressive panel system with no exposed divider molding reveal between vertical panel edges. Uses patented Uniclic tongue-and-groove click system for virtually seamless connections.",
+        "panel_thickness": "3/8 inches (10 mm)",
+        "panel_height": "9 feet 0 inches (108 inches / 2785 mm)",
+        "panel_width": "24-5/16 inches (618 mm)",
+        "panel_core": "10 mm PEFC certified MDF",
+        "surface_material": "Durable melamine top layer and balancing melamine back layer, available in 86 colors and decors",
+        "connection_system": "Uniclic patented tongue-and-groove click system — panels click together with no exposed divider molding",
+        "fire_ratings": [
+          "ASTM E84 Class A (Clicwall FR)",
+          "ASTM E84 Class B (Clicwall standard)"
+        ],
+        "reveals": {
+          "horizontal": "None — seamless connection",
+          "vertical": "None — seamless connection"
+        },
+        "moldings": {
+          "material": "0.062 inch thick 6063 alloy aluminum with T5 temper",
+          "edge_trims_half_inch": [
+            "#304A 1/2 inch Edge Trim Molding (2-piece)",
+            "#103-90 1 inch Rounded 90 degree Outside Corner",
+            "#103-135 135 degree Outside Corner",
+            "#304-90 End Cap for top and bottom of 90 degree outside corner",
+            "#304-135 End Cap for top and bottom of 135 degree outside corner"
+          ],
+          "edge_trims_three_eighths_inch": [
+            "#604 3/8 inch Edge Trim Molding",
+            "#604A 3/8 inch Edge Trim Molding (2-piece)",
+            "#603-90 3/8 inch Stepped 90 degree Outside Corner",
+            "#603-135 3/8 inch Stepped 135 degree Outside Corner",
+            "#604-90 End Cap for top and bottom of 90 degree Outside Corner"
+          ],
+          "aluminum_finish_options": ["Clear Anodized", "Black", "Custom Color"]
+        },
+        "technical_data": {
+          "fire_rating_standard": "ASTM E84 Class B (standard) / Class A (FR)",
+          "acoustic_dB": "Rw (C-4; Ctr -11) = 52 dB per ISO 17025",
+          "bending_strength": "22 N/mm2 (EN310)",
+          "modulus_of_elasticity": "2500 N/mm2 (EN310)",
+          "tensile_strength": "0.6 N/mm2 (EN319)",
+          "swelling_after_24hrs": "17% (EN317)",
+          "formaldehyde_content": "<=8 mg/100g dry (EN120 E1)",
+          "thermal_conductivity": "0.1 (EN13986)",
+          "scratch_resistance": ">=1.5 N (EN14323)",
+          "stain_resistance": ">=3 rating (EN14323)",
+          "density": "760 kg/m3 (EN323)",
+          "moisture_content": "6 +/- 2% (EN323)"
+        },
+        "installation_notes": [
+          "Store flat to avoid warping; acclimate per manufacturer specs before installation",
+          "Panels attach with screws, masonry anchors, mastic, or staples",
+          "1mm contraction joint per running meter required on all sides; minimum 6mm joint",
+          "Extra expansion joint every 8 meters (24-26 feet)"
+        ]
+      },
+      {
+        "id": "system_310",
+        "name": "System #310",
+        "description": "Progressive panel system with an exposed divider molding creating a 1/16 inch (1.5mm) horizontal and vertical reveal between edge banded panels.",
+        "panel_thickness": "7/16 inches (11.1 mm)",
+        "edge_finish": "0.018 inch (0.5mm) PVC edge banding or wood veneer",
+        "reveals": {
+          "horizontal": "1/16 inch (1.5 mm)",
+          "vertical": "1/16 inch (1.5 mm)"
+        },
+        "reveal_style": "Exposed flat divider molding",
+        "installation_orientation": "Vertical",
+        "divider_moldings": [
+          "#302a — 1/16 inch (1.5mm) wide Divider Molding",
+          "#410 H — Divider Molding for use with marker boards, tack board, and specialty panels"
+        ],
+        "edge_trim_options": [
+          "#304 1/2 inch Edge Trim Molding",
+          "#304A 1/2 inch Edge Trim Molding (2-piece)",
+          "#103-90 1 inch Rounded 90 degree Outside Corner",
+          "#103-135 135 degree Outside Corner",
+          "#304-90 End Cap for 90 degree outside corner",
+          "#304-135 End Cap for 135 degree outside corner",
+          "#604 3/8 inch Edge Trim Molding",
+          "#604A 3/8 inch Edge Trim Molding (2-piece)",
+          "#603-90 3/8 inch Stepped 90 degree Outside Corner",
+          "#603-135 3/8 inch Stepped 135 degree Outside Corner",
+          "#604-90 End Cap for 90 degree outside corner"
+        ]
+      },
+      {
+        "id": "system_310EB",
+        "name": "System #310EB",
+        "description": "Progressive panel system with a hidden divider molding and 1/8 inch (3mm) radiused vinyl edge banding on all panel edges, creating a continuous decorative face with a minimal reveal. Recommended for vertical and horizontal installations.",
+        "panel_thickness": "7/16 inches (11.1 mm)",
+        "edge_finish": "1/8 inch (3mm) radiused vinyl edge banding, color coordinated or contrasting",
+        "reveals": {
+          "horizontal": "Minimal — 1/8 inch (3mm) radiused edge banding with hidden divider molding",
+          "vertical": "Minimal — 1/8 inch (3mm) radiused edge banding with hidden divider molding"
+        },
+        "reveal_style": "Hidden divider molding — near-seamless appearance",
+        "installation_orientation": "Vertical and horizontal",
+        "max_horizontal_length": "96 inches (2438 mm)",
+        "divider_moldings": [
+          "#302 — Hidden Divider Molding (Black)",
+          "#410 H — Divider Molding for use with marker boards, tack board, and specialty panels"
+        ],
+        "edge_trim_options": [
+          "#304 1/2 inch Edge Trim Molding",
+          "#304A 1/2 inch Edge Trim Molding (2-piece)",
+          "#103-90 1 inch Rounded 90 degree Outside Corner",
+          "#103-135 135 degree Outside Corner",
+          "#304-90 End Cap for 90 degree outside corner",
+          "#304-135 End Cap for 135 degree outside corner",
+          "#604 3/8 inch Edge Trim Molding",
+          "#604A 3/8 inch Edge Trim Molding (2-piece)",
+          "#603-90 3/8 inch Stepped 90 degree Outside Corner",
+          "#603-135 3/8 inch Stepped 135 degree Outside Corner",
+          "#604-90 End Cap for 90 degree outside corner"
+        ]
+      },
+      {
+        "id": "system_310EB_310",
+        "name": "System #310EB / #310 (Combination)",
+        "description": "Progressive combination panel system. Horizontal panel edges use a hidden divider molding with 1/8 inch (3mm) radiused vinyl edge banding. Vertical panel edges use 0.018 inch flat edge banding with a minimal 1/16 inch wide visible divider molding. Recommended for vertical and horizontal installations.",
+        "panel_thickness": "7/16 inches (11.1 mm)",
+        "reveals": {
+          "horizontal": "Hidden — 1/8 inch (3mm) radiused vinyl edge banding with concealed divider molding",
+          "vertical": "1/16 inch (1.5mm) visible divider molding with 0.018 inch flat edge banding"
+        },
+        "reveal_style": "Combination — hidden horizontal, exposed vertical",
+        "installation_orientation": "Vertical and horizontal",
+        "max_horizontal_length": "96 inches (2438 mm)",
+        "divider_moldings": [
+          "#302 — Hidden Horizontal Divider Molding (Black)",
+          "#302a — 1/16 inch wide Vertical Divider Molding"
+        ]
+      },
+      {
+        "id": "system_312",
+        "name": "System #312",
+        "description": "Progressive panel system with an exposed divider molding creating a 1/2 inch (12mm) recessed channel reveal horizontally and vertically between edge banded panels. The reveal can be accented with a concave insert or HPL or veneer strips. Recommended for vertical and horizontal installations.",
+        "panel_thickness": "7/16 inches (11.1 mm)",
+        "edge_finish": "0.018 inch (0.5mm) PVC edge banding or wood veneer",
+        "reveals": {
+          "horizontal": "1/2 inch (12mm) wide recessed channel",
+          "vertical": "1/2 inch (12mm) wide recessed channel"
+        },
+        "reveal_style": "Recessed channel — can accept concave insert, HPL strip, or veneer strip accent",
+        "installation_orientation": "Vertical and horizontal",
+        "max_horizontal_length": "96 inches (2438 mm)",
+        "divider_moldings": [
+          "#312 — 1/2 inch wide Recessed Channel Divider Molding",
+          "#312RI — Concave Reveal Insert (Optional)"
+        ],
+        "edge_trim_options": [
+          "#304 1/2 inch Edge Trim Molding",
+          "#304A 1/2 inch Edge Trim Molding (2-piece)",
+          "#103-90 1 inch Rounded 90 degree Outside Corner",
+          "#103-135 135 degree Outside Corner",
+          "#304-90 End Cap for 90 degree outside corner",
+          "#304-135 End Cap for 135 degree outside corner",
+          "#604 3/8 inch Edge Trim Molding",
+          "#604A 3/8 inch Edge Trim Molding (2-piece)",
+          "#603-90 3/8 inch Stepped 90 degree Outside Corner",
+          "#603-135 3/8 inch Stepped 135 degree Outside Corner",
+          "#604-90 End Cap for 90 degree outside corner"
+        ]
+      },
+      {
+        "id": "system_312_310",
+        "name": "System #312 / #310 (Combination)",
+        "description": "Progressive combination panel system with an exposed 1/2 inch (12mm) recessed horizontal channel reveal and a 1/16 inch (1.5mm) vertical reveal between edge banded panels. The horizontal reveal can be accented with a concave insert or HPL or veneer strips. Recommended for vertical and horizontal installations.",
+        "panel_thickness": "7/16 inches (11.1 mm)",
+        "edge_finish": "0.018 inch (0.5mm) PVC edge banding or wood veneer",
+        "reveals": {
+          "horizontal": "1/2 inch (12mm) wide recessed channel",
+          "vertical": "1/16 inch (1.5mm)"
+        },
+        "reveal_style": "Combination — wide recessed channel horizontal, narrow flat vertical",
+        "installation_orientation": "Vertical and horizontal",
+        "max_horizontal_length": "96 inches (2438 mm)",
+        "divider_moldings": [
+          "#312 — 1/2 inch wide Horizontal Recessed Channel Divider Molding",
+          "#302a — 1/16 inch wide Vertical Divider Molding"
+        ]
+      },
+      {
+        "id": "system_314",
+        "name": "System #314",
+        "description": "Progressive panel system with an exposed divider molding creating a 1/4 inch (6mm) concave radiused reveal horizontally and vertically between edge banded panels. Recommended for vertical and horizontal installations.",
+        "panel_thickness": "7/16 inches (11.1 mm)",
+        "edge_finish": "0.018 inch (0.5mm) PVC edge banding or wood veneer",
+        "reveals": {
+          "horizontal": "1/4 inch (6mm) wide concave radiused",
+          "vertical": "1/4 inch (6mm) wide concave radiused"
+        },
+        "reveal_style": "Concave radiused reveal",
+        "installation_orientation": "Vertical and horizontal",
+        "max_horizontal_length": "96 inches (2438 mm)",
+        "divider_moldings": [
+          "#314 — 1/4 inch wide Concave Divider Molding",
+          "#410 H — Divider Molding for use with marker boards, tack board, and specialty panels"
+        ],
+        "edge_trim_options": [
+          "#304 1/2 inch Edge Trim Molding",
+          "#304A 1/2 inch Edge Trim Molding (2-piece)",
+          "#103-90 1 inch Rounded 90 degree Outside Corner",
+          "#103-135 135 degree Outside Corner",
+          "#304-90 End Cap for 90 degree outside corner",
+          "#304-135 End Cap for 135 degree outside corner",
+          "#604 3/8 inch Edge Trim Molding",
+          "#604A 3/8 inch Edge Trim Molding (2-piece)",
+          "#603-90 3/8 inch Stepped 90 degree Outside Corner",
+          "#603-135 3/8 inch Stepped 135 degree Outside Corner",
+          "#604-90 End Cap for 90 degree outside corner"
+        ]
+      },
+      {
+        "id": "system_410",
+        "name": "System #410",
+        "description": "Progressive panel system with an exposed 1/2 inch (12mm) divider molding resting over the vertical and horizontal edges of panels. Recommended for vertical and horizontal installations.",
+        "panel_thickness": "7/16 inches (11.1 mm)",
+        "edge_finish": "Unfinished panel edges",
+        "reveals": {
+          "horizontal": "1/2 inch (12mm) exposed molding covering panel edges",
+          "vertical": "1/2 inch (12mm) exposed molding covering panel edges"
+        },
+        "reveal_style": "Exposed overlay molding — molding rests over panel edges",
+        "installation_orientation": "Vertical and horizontal",
+        "max_horizontal_length": "96 inches (2438 mm)",
+        "divider_moldings": [
+          "#410 H — 1/2 inch (12mm) wide face Divider Molding",
+          "#410a — 2-piece 1/2 inch wide face Divider Molding (for removable panels)"
+        ],
+        "edge_trim_options": [
+          "#304 1/2 inch Edge Trim Molding",
+          "#304A 1/2 inch Edge Trim Molding (2-piece)",
+          "#103-90 1 inch Rounded 90 degree Outside Corner",
+          "#103-135 135 degree Outside Corner",
+          "#304-90 End Cap for 90 degree outside corner",
+          "#304-135 End Cap for 135 degree outside corner",
+          "#604 3/8 inch Edge Trim Molding",
+          "#604A 3/8 inch Edge Trim Molding (2-piece)",
+          "#603-90 3/8 inch Stepped 90 degree Outside Corner",
+          "#603-135 3/8 inch Stepped 135 degree Outside Corner",
+          "#604-90 End Cap for 90 degree outside corner"
+        ]
+      },
+      {
+        "id": "system_412",
+        "name": "System #412",
+        "description": "Non-progressive panel system with an exposed channel divider molding creating a 1 inch (25mm) horizontal and vertical reveal between panels. The 1/2 inch wide recessed channel in the molding center can accept flush or concave snap-in inserts or decorative strips of HPL or veneer. Recommended for vertical and horizontal installations.",
+        "panel_thickness": "7/16 inches (11.1 mm)",
+        "edge_finish": "Unfinished panel edges",
+        "reveals": {
+          "horizontal": "1 inch (25mm) exposed channel molding",
+          "vertical": "1 inch (25mm) exposed channel molding"
+        },
+        "reveal_style": "Wide exposed channel — accepts decorative inserts in center",
+        "installation_orientation": "Vertical and horizontal",
+        "max_horizontal_length": "96 inches (2438 mm)",
+        "divider_moldings": [
+          "#412 — 1 inch wide Divider Molding with 1/2 inch recessed center channel for insert",
+          "#412 RI Flat — Flat Reveal Insert",
+          "#412 RI Concave — Concave Reveal Insert"
+        ],
+        "edge_trim_options": [
+          "#304 1/2 inch Edge Trim Molding",
+          "#304A 1/2 inch Edge Trim Molding (2-piece)",
+          "#103-90 1 inch Rounded 90 degree Outside Corner",
+          "#103-135 135 degree Outside Corner",
+          "#304-90 End Cap for 90 degree outside corner",
+          "#304-135 End Cap for 135 degree outside corner",
+          "#604 3/8 inch Edge Trim Molding",
+          "#604A 3/8 inch Edge Trim Molding (2-piece)",
+          "#603-90 3/8 inch Stepped 90 degree Outside Corner",
+          "#603-135 3/8 inch Stepped 135 degree Outside Corner",
+          "#604-90 End Cap for 90 degree outside corner"
+        ]
+      },
+      {
+        "id": "system_631",
+        "name": "System #631",
+        "description": "Progressive panel system with a single rib divider molding creating a 1/4 inch (6mm) recessed reveal between edge banded panels horizontally and vertically. Recommended for vertical and horizontal installations.",
+        "panel_thickness": "7/16 inches (11.1 mm)",
+        "edge_finish": "0.018 inch (0.5mm) PVC edge banding or wood veneer",
+        "reveals": {
+          "horizontal": "1/4 inch (6mm) single rib recessed",
+          "vertical": "1/4 inch (6mm) single rib recessed"
+        },
+        "reveal_style": "Single rib recessed reveal",
+        "installation_orientation": "Vertical and horizontal",
+        "max_horizontal_length": "96 inches (2438 mm)",
+        "divider_moldings": [
+          "#631 — 1/4 inch wide single rib Divider Molding",
+          "#410 H — Divider Molding for use with marker boards, tack board, and specialty panels"
+        ],
+        "edge_trim_options": [
+          "#304 1/2 inch Edge Trim Molding",
+          "#304A 1/2 inch Edge Trim Molding (2-piece)",
+          "#103-90 1 inch Rounded 90 degree Outside Corner",
+          "#103-135 135 degree Outside Corner",
+          "#304-90 End Cap for 90 degree outside corner",
+          "#304-135 End Cap for 135 degree outside corner",
+          "#604 3/8 inch Edge Trim Molding",
+          "#604A 3/8 inch Edge Trim Molding (2-piece)",
+          "#603-90 3/8 inch Stepped 90 degree Outside Corner",
+          "#603-135 3/8 inch Stepped 135 degree Outside Corner",
+          "#604-90 End Cap for 90 degree outside corner"
+        ]
+      },
+      {
+        "id": "system_631_632",
+        "name": "System #631 / #632 (Combination)",
+        "description": "Progressive combination panel system with a 1/4 inch (6mm) wide single rib molding running horizontally and a 1/2 inch (12mm) wide double ribbed molding running vertically between edge banded panels. Recommended for interior installations.",
+        "panel_thickness": "7/16 inches (11.1 mm)",
+        "edge_finish": "0.018 inch (0.5mm) PVC edge banding or wood veneer",
+        "reveals": {
+          "horizontal": "1/4 inch (6mm) single rib recessed",
+          "vertical": "1/2 inch (12mm) double rib recessed"
+        },
+        "reveal_style": "Combination — narrow single rib horizontal, wide double rib vertical",
+        "installation_orientation": "Interior vertical and horizontal",
+        "max_horizontal_length": "96 inches (2438 mm)",
+        "divider_moldings": [
+          "#631 — 1/4 inch wide Horizontal single rib Divider Molding",
+          "#632 — 1/2 inch wide Vertical double ribbed Divider Molding"
+        ]
+      },
+      {
+        "id": "system_632",
+        "name": "System #632",
+        "description": "Progressive panel system with an exposed double ribbed divider molding creating a 1/2 inch (12mm) recessed reveal between edge banded panels horizontally and vertically. Recommended for vertical and horizontal installations.",
+        "panel_thickness": "7/16 inches (11.1 mm)",
+        "edge_finish": "0.018 inch (0.5mm) PVC edge banding or wood veneer",
+        "reveals": {
+          "horizontal": "1/2 inch (12mm) double rib recessed",
+          "vertical": "1/2 inch (12mm) double rib recessed"
+        },
+        "reveal_style": "Double ribbed recessed reveal",
+        "installation_orientation": "Vertical and horizontal",
+        "max_horizontal_length": "96 inches (2438 mm)",
+        "divider_moldings": [
+          "#632 — 1/2 inch wide double ribbed Divider Molding",
+          "#410 H — Divider Molding for use with marker boards, tack board, and specialty panels"
+        ],
+        "edge_trim_options": [
+          "#304 1/2 inch Edge Trim Molding",
+          "#304A 1/2 inch Edge Trim Molding (2-piece)",
+          "#103-90 1 inch Rounded 90 degree Outside Corner",
+          "#103-135 135 degree Outside Corner",
+          "#304-90 End Cap for 90 degree outside corner",
+          "#304-135 End Cap for 135 degree outside corner",
+          "#604 3/8 inch Edge Trim Molding",
+          "#604A 3/8 inch Edge Trim Molding (2-piece)",
+          "#603-90 3/8 inch Stepped 90 degree Outside Corner",
+          "#603-135 3/8 inch Stepped 135 degree Outside Corner",
+          "#604-90 End Cap for 90 degree outside corner"
+        ]
+      },
+      {
+        "id": "system_632_631",
+        "name": "System #632 / #631 (Combination)",
+        "description": "Progressive combination panel system with a 1/2 inch (12mm) wide double ribbed molding running horizontally and a 1/4 inch (6mm) wide single rib molding running vertically between edge banded panels. Recommended for interior installations.",
+        "panel_thickness": "7/16 inches (11.1 mm)",
+        "edge_finish": "0.018 inch (0.5mm) PVC edge banding or wood veneer",
+        "reveals": {
+          "horizontal": "1/2 inch (12mm) double rib recessed",
+          "vertical": "1/4 inch (6mm) single rib recessed"
+        },
+        "reveal_style": "Combination — wide double rib horizontal, narrow single rib vertical",
+        "installation_orientation": "Interior vertical and horizontal",
+        "max_horizontal_length": "96 inches (2438 mm)",
+        "divider_moldings": [
+          "#632 — 1/2 inch wide Horizontal double ribbed Divider Molding",
+          "#631 — 1/4 inch wide Vertical single rib Divider Molding"
+        ]
+      }
+    ]
+  }
