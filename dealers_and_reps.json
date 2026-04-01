@@ -3,8 +3,180 @@
   "last_updated": "2026-03-31",
   "notes": "Holloway Interior Solutions email domain appears incomplete in source data. Verify before use.",
   "entries": [
-    {"id":"rep_001","company":"Surface Materials","contact_name":"Kelly Richards","type":"DEALER","states":["Connecticut","Delaware","Indiana","Kentucky","Maine","Massachusetts","New Hampshire","New Jersey","New York","Ohio","Pennsylvania","Rhode Island","Vermont"],"region_notes":null,"address":{"street":"6655 Parkland Blvd.","city":"Solon","state":"Ohio","zip":"44139","country":"US"},"phone":[{"type":"main","number":"440.248.0000"}],"email":"kellyr@surfacematerials.com"},
-    {"id":"rep_002","company":"The Thaxton Group","contact_name":"Doug Thaxton","type":"REPRESENTATIVE","states":["Alaska","Idaho","Montana","Oregon","Washington","Wyoming","Utah"],"region_notes":null,"address":{"street":"P.O. Box 75","city":"Athol","state":"Idaho","zip":"83801","country":"US"},"phone":[{"type":"office","number":"208.561.5190"},{"type":"mobile","number":"805.432.0127"}],"email":"doug@thethaxtongroup.com"},
-    {"id":"rep_003","company":"Commercial Solutions LLC","contact_name":"Chris Powers","type":"REPRESENTATIVE","states":["Michigan","Michigan Upper Peninsula"],"region_notes":"Covers both Michigan Lower Peninsula and Upper Peninsula","address":{"street":"1990 Valley Ridge Drive","city":"Ortonville","state":"Michigan","zip":"48462","country":"US"},"phone":[{"type":"main","number":"586.215.6253"}],"email":"chris@flooringrep.com"},
-    {"id":"rep_004","company":"Dan Lurie Associates","contact_name":"Dan Lurie","type":"REPRESENTATIVE","states":["Maryland","North Carolina","South Carolina","Virginia"],"region_notes":null,"address":{"street":"2820 Selwyn Ave. Ste 621","city":"Charlotte","state":"North Carolina","zip":"28209","country":"US"},"phone":[{"type":"main","number":"704.453.1172"}],"email":"dan@danlurieassociates.com"},
-    {"id":"rep_005","company":"Dundas and Matheson (DMAP)","contact_name":"Chris Forrest","type":"DEALER","states":["Arizona","New Mexico"],"region_notes":"Company headquartered in Canada; covers Arizona and New Mexico in the US","address":{"street":"1273 North Service Rd E, Unit F
+    {
+      "id": "rep_001",
+      "company": "Surface Materials",
+      "contact_name": "Kelly Richards",
+      "type": "DEALER",
+      "states": ["Connecticut", "Delaware", "Indiana", "Kentucky", "Maine", "Massachusetts", "New Hampshire", "New Jersey", "New York", "Ohio", "Pennsylvania", "Rhode Island", "Vermont"],
+      "region_notes": null,
+      "address": {
+        "street": "6655 Parkland Blvd.",
+        "city": "Solon",
+        "state": "Ohio",
+        "zip": "44139",
+        "country": "US"
+      },
+      "phone": [
+        { "type": "main", "number": "440.248.0000" }
+      ],
+      "email": "kellyr@surfacematerials.com"
+    },
+    {
+      "id": "rep_002",
+      "company": "The Thaxton Group",
+      "contact_name": "Doug Thaxton",
+      "type": "REPRESENTATIVE",
+      "states": ["Alaska", "Idaho", "Montana", "Oregon", "Washington", "Wyoming", "Utah"],
+      "region_notes": null,
+      "address": {
+        "street": "P.O. Box 75",
+        "city": "Athol",
+        "state": "Idaho",
+        "zip": "83801",
+        "country": "US"
+      },
+      "phone": [
+        { "type": "office", "number": "208.561.5190" },
+        { "type": "mobile", "number": "805.432.0127" }
+      ],
+      "email": "doug@thethaxtongroup.com"
+    },
+    {
+      "id": "rep_003",
+      "company": "Commercial Solutions LLC",
+      "contact_name": "Chris Powers",
+      "type": "REPRESENTATIVE",
+      "states": ["Michigan", "Michigan Upper Peninsula"],
+      "region_notes": "Covers both Michigan Lower Peninsula and Upper Peninsula",
+      "address": {
+        "street": "1990 Valley Ridge Drive",
+        "city": "Ortonville",
+        "state": "Michigan",
+        "zip": "48462",
+        "country": "US"
+      },
+      "phone": [
+        { "type": "main", "number": "586.215.6253" }
+      ],
+      "email": "chris@flooringrep.com"
+    },
+    {
+      "id": "rep_004",
+      "company": "Dan Lurie Associates",
+      "contact_name": "Dan Lurie",
+      "type": "REPRESENTATIVE",
+      "states": ["Maryland", "North Carolina", "South Carolina", "Virginia"],
+      "region_notes": null,
+      "address": {
+        "street": "2820 Selwyn Ave. Ste 621",
+        "city": "Charlotte",
+        "state": "North Carolina",
+        "zip": "28209",
+        "country": "US"
+      },
+      "phone": [
+        { "type": "main", "number": "704.453.1172" }
+      ],
+      "email": "dan@danlurieassociates.com"
+    },
+    {
+      "id": "rep_005",
+      "company": "Dundas and Matheson (DMAP)",
+      "contact_name": "Chris Forrest",
+      "type": "DEALER",
+      "states": ["Arizona", "New Mexico"],
+      "region_notes": "Company headquartered in Canada; covers Arizona and New Mexico in the US",
+      "address": {
+        "street": "1273 North Service Rd E, Unit F2",
+        "city": "Oakville",
+        "state": "Ontario",
+        "zip": null,
+        "country": "CA"
+      },
+      "phone": [
+        { "type": "main", "number": "480.977.2599" }
+      ],
+      "email": "cforrest@dundasmatheson.com"
+    },
+    {
+      "id": "rep_006",
+      "company": "Holloway Interior Solutions",
+      "contact_name": "Amy Holloway",
+      "type": "REPRESENTATIVE",
+      "states": ["Kansas", "Missouri", "Nebraska"],
+      "region_notes": "Also covers Southern Illinois",
+      "address": null,
+      "phone": [
+        { "type": "main", "number": "913.481.2085" }
+      ],
+      "email": "amy@hollowayinteriorsolutions",
+      "data_quality_flags": ["email_domain_missing"]
+    },
+    {
+      "id": "rep_007",
+      "company": "Sunrise Architectural Systems",
+      "contact_name": "Jarrett Hall",
+      "type": "REPRESENTATIVE",
+      "states": ["Florida"],
+      "region_notes": "Independent sales rep",
+      "address": null,
+      "phone": [
+        { "type": "main", "number": "904.923.8679" }
+      ],
+      "email": "jarrett@sunrisearchtectural.com"
+    }
+  ],
+  "state_to_rep_index": {
+    "Alaska": ["rep_002"],
+    "Alabama": [],
+    "Arkansas": [],
+    "Arizona": ["rep_005"],
+    "California": [],
+    "Colorado": [],
+    "Connecticut": ["rep_001"],
+    "Washington DC": [],
+    "Delaware": ["rep_001"],
+    "Florida": ["rep_007"],
+    "Georgia": [],
+    "Idaho": ["rep_002"],
+    "Illinois": ["rep_006"],
+    "Indiana": ["rep_001"],
+    "Kansas": ["rep_006"],
+    "Kentucky": ["rep_001"],
+    "Louisiana": [],
+    "Massachusetts": ["rep_001"],
+    "Maryland": ["rep_004"],
+    "Maine": ["rep_001"],
+    "Michigan": ["rep_003"],
+    "Michigan Upper Peninsula": ["rep_003"],
+    "Minnesota": [],
+    "Missouri": ["rep_006"],
+    "Mississippi": [],
+    "Montana": ["rep_002"],
+    "North Carolina": ["rep_004"],
+    "North Dakota": [],
+    "Nebraska": ["rep_006"],
+    "New Hampshire": ["rep_001"],
+    "New Jersey": ["rep_001"],
+    "New Mexico": ["rep_005"],
+    "Nevada": [],
+    "New York": ["rep_001"],
+    "Ohio": ["rep_001"],
+    "Oklahoma": [],
+    "Oregon": ["rep_002"],
+    "Pennsylvania": ["rep_001"],
+    "Rhode Island": ["rep_001"],
+    "South Carolina": ["rep_004"],
+    "South Dakota": [],
+    "Tennessee": [],
+    "Texas": [],
+    "Utah": ["rep_002"],
+    "Virginia": ["rep_004"],
+    "Vermont": ["rep_001"],
+    "Washington": ["rep_002"],
+    "Wisconsin": [],
+    "West Virginia": [],
+    "Wyoming": ["rep_002"]
+  }
+}
