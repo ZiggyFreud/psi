@@ -15,9 +15,9 @@ GREETING_TRIGGERS = ["hi", "hello", "hey", "howdy", "good morning", "good aftern
 THANK_YOU_TRIGGERS = ["thank you", "thanks", "thx", "thank u", "ty", "appreciate it", "appreciate that"]
 
 RESIDENTIAL_RESPONSES = [
-    "Thank you for your inquiry. At this time, we focus on supplying and supporting larger-scale residential projects and work directly with builders and developers. Unfortunately, we're not set up to take on individual small-scale residential jobs.",
-    "Thanks for reaching out - we appreciate your interest. Our work is primarily focused on partnering with builders and developers on larger residential projects, so we're not able to take on individual small residential jobs.",
-    "Thank you for contacting us. We specialize in supporting builders and developers on larger residential projects, so we're not able to take on individual small-scale residential work. You may want to check with a local contractor or supplier who handles smaller projects."
+    "Thank you for your inquiry. At this time, we focus on supplying and supporting larger-scale residential projects and work directly with builders and developers. Unfortunately, we're not set up to take on individual small-scale residential jobs. For more information, please email us at info@panelspec.com or call us at 1-800-947-9422.",
+    "Thanks for reaching out - we appreciate your interest. Our work is primarily focused on partnering with builders and developers on larger residential projects, so we're not able to take on individual small residential jobs. For more information, please email us at info@panelspec.com or call us at 1-800-947-9422.",
+    "Thank you for contacting us. We specialize in supporting builders and developers on larger residential projects, so we're not able to take on individual small-scale residential work. You may want to check with a local contractor or supplier who handles smaller projects. You can also reach us at info@panelspec.com or 1-800-947-9422."
 ]
 
 RESIDENTIAL_TRIGGERS = [
@@ -69,8 +69,7 @@ def chat():
     if is_fallback(answer):
         return jsonify({"answer": get_response("cannot_answer")})
 
-    ack = get_response("acknowledging_a_question")
-    return jsonify({"answer": f"{ack} {answer}"})
+    return jsonify({"answer": answer})
 
 @app.route("/health", methods=["GET"])
 def health():
