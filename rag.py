@@ -1,4 +1,5 @@
 import os
+import re
 import chromadb
 from chromadb.utils.embedding_functions import EmbeddingFunction
 import voyageai
@@ -26,6 +27,17 @@ collection = chroma_client.get_or_create_collection(
     embedding_function=VoyageEmbeddingFunction()
 )
 
+def clean_response(text: str) -> str:
+    text = re.sub(r'\*\*(.*?)\*\*', r'\1', text)
+    text = re.sub(r'\*(.*?)\*', r'\1', text)
+    text = re.sub(r'\*+', '', text)
+    text = re.sub(r'^#{1,6}\s+', '', text, flags=re.MULTILINE)
+    text = re.sub(r'^\s*[-*]\s+', '', text, flags=re.MULTILINE)
+    text = re.sub(r'^\s*\d+\.\s+', '', text, flags=re.MULTILINE)
+    text = re.sub(r'-{2,}', '', text)
+    text = re.sub(r'\n{3,}', '\n\n', text)
+    return text.strip()
+
 def query_rag(user_message):
     results = collection.query(
         query_texts=[user_message],
@@ -47,11 +59,12 @@ def query_rag(user_message):
 Answer questions based ONLY on the provided context. Be concise, professional, and helpful.
 
 RESPONSE STYLE:
-- Write in clear, confident prose. Do not open with filler phrases like "Great question!" or "I'm on it!"
-- Use bullet points only when listing 4 or more distinct items
-- Do not bold every bullet — only bold truly critical terms
-- PSI does not have architects on staff. Design support means working alongside architects and designers, not providing architectural services directly
-- Keep responses focused and accurate
+- Write in plain prose only. Absolutely no markdown formatting.
+- No bold (**text**), no italic (*text*), no headers (#), no bullet dashes (-), no asterisks (*) of any kind.
+- Write everything as natural sentences and paragraphs.
+- Do not open with filler phrases like "Great question!" or "I'm on it!"
+- PSI does not have architects on staff. Design support means working alongside architects and designers, not providing architectural services directly.
+- Keep responses focused and accurate.
 
 CRITICAL — TWO SEPARATE PRODUCT LINES:
 PSI makes two completely different product lines. Never mix their specifications.
@@ -74,8 +87,8 @@ PSI makes two completely different product lines. Never mix their specifications
    - Never say FIPRO follows ASTM E84 — it does not
 
 CONTACT: Always include BOTH when directing someone to contact PSI:
-- Email: info@panelspec.com
-- Phone: 1-800-947-9422
+Email: info@panelspec.com
+Phone: 1-800-947-9422
 
 If the topic is NOT found in the context, respond with ONLY this exact message:
 \"{FALLBACK}\"
@@ -85,4 +98,4 @@ Do NOT combine the fallback with any other information.""",
         ]
     )
 
-    return response.content[0].text
+    return clean_response(response.content[0].text)
