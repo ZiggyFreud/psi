@@ -1,7 +1,7 @@
 import random
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from rag import query_rag, FALLBACK
+from rag import query_rag, FALLBACK, add_to_knowledge
 from dotenv import load_dotenv
 from polite_responses import get_response
 from rep_lookup import lookup_rep
@@ -10,6 +10,8 @@ load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
+
+ADMIN_TOKEN = "admin332445"
 
 GREETING_TRIGGERS = ["hi", "hello", "hey", "howdy", "good morning", "good afternoon", "good evening", "what's up", "whats up"]
 THANK_YOU_TRIGGERS = ["thank you", "thanks", "thx", "thank u", "ty", "appreciate it", "appreciate that"]
@@ -42,6 +44,37 @@ def is_residential(message: str) -> bool:
 def is_fallback(answer: str) -> bool:
     return answer.strip() == FALLBACK.strip()
 
+def handle_admin_command(message: str):
+    """Parse and execute admin commands. Returns a response string."""
+    # Strip the token and any leading whitespace/punctuation
+    body = message[len(ADMIN_TOKEN):].strip().lstrip(":").strip()
+
+    if not body:
+        return (
+            "Admin commands:\n"
+            "ADD: <text> — store new knowledge in the bot\n"
+            "Example: admin332445 ADD: PSI offers custom panel sizes up to 4x10 feet."
+        )
+
+    upper = body.upper()
+
+    if upper.startswith("ADD:"):
+        content = body[4:].strip()
+        if not content:
+            return "Please provide text after ADD: to store."
+        success = add_to_knowledge(content)
+        if success:
+            return f"Done. I've stored the following and will use it going forward:\n\n\"{content}\""
+        else:
+            return "Something went wrong storing that. Please check the server logs."
+
+    # Unrecognized command — still treat the whole body as an ADD
+    success = add_to_knowledge(body)
+    if success:
+        return f"Stored as new knowledge:\n\n\"{body}\""
+    else:
+        return "Something went wrong storing that. Please check the server logs."
+
 @app.route("/chat", methods=["POST"])
 def chat():
     data = request.get_json()
@@ -49,6 +82,11 @@ def chat():
 
     if not user_message:
         return jsonify({"answer": "Please ask a question."}), 400
+
+    # Admin training route — checked first, before anything else
+    if user_message.strip().startswith(ADMIN_TOKEN):
+        response = handle_admin_command(user_message.strip())
+        return jsonify({"answer": response})
 
     if is_greeting(user_message):
         return jsonify({"answer": get_response("greetings")})
@@ -61,11 +99,9 @@ def chat():
 
     rep_answer = lookup_rep(user_message)
     if rep_answer is not None:
-        ack = get_response("acknowledging_a_question")
-        return jsonify({"answer": f"{ack}\n\n{rep_answer}"})
+        return jsonify({"answer": rep_answer})
 
     answer = query_rag(user_message)
-
     if is_fallback(answer):
         return jsonify({"answer": get_response("cannot_answer")})
 
