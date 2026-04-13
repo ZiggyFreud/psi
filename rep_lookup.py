@@ -13,6 +13,10 @@ REP_INTENT_KEYWORDS = [
     "covers", "covering", "find", "locate", "get in touch"
 ]
 
+# Short keywords that need whole-word matching to avoid false positives
+# e.g. "rep" matches "recommend", "find" matches "finders", "area" matches "area" (ok but be safe)
+WHOLE_WORD_KEYWORDS = {"rep", "find", "area", "sales", "locate", "covers", "covering"}
+
 _state_aliases = {
     "new mexico": "New Mexico", "nm": "New Mexico",
     "south carolina": "South Carolina", "sc": "South Carolina",
@@ -74,7 +78,14 @@ NO_REP_RESPONSE = (
 
 def has_rep_intent(message: str) -> bool:
     msg = message.lower()
-    return any(keyword in msg for keyword in REP_INTENT_KEYWORDS)
+    for keyword in REP_INTENT_KEYWORDS:
+        if keyword in WHOLE_WORD_KEYWORDS:
+            if re.search(r'\b' + re.escape(keyword) + r'\b', msg):
+                return True
+        else:
+            if keyword in msg:
+                return True
+    return False
 
 def detect_state(message: str) -> str | None:
     msg = message.lower()
@@ -98,7 +109,7 @@ def format_rep(entry: dict) -> str:
     if entry.get("region_notes"):
         lines.append(f"Note: {entry['region_notes']}")
     return "\n".join(lines)
-    
+
 # Reverse map full names back to abbreviations for index lookup
 _full_to_abbrev = {v: k.upper() for k, v in _state_aliases.items() if len(k) == 2}
 
