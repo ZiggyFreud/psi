@@ -1,5 +1,6 @@
 import os
 import re
+import uuid
 import chromadb
 from chromadb.utils.embedding_functions import EmbeddingFunction
 import voyageai
@@ -38,6 +39,20 @@ def clean_response(text: str) -> str:
     text = re.sub(r'\n{3,}', '\n\n', text)
     return text.strip()
 
+def add_to_knowledge(text: str) -> bool:
+    """Embed and store a text chunk in ChromaDB. Returns True on success."""
+    try:
+        doc_id = f"admin_{uuid.uuid4().hex[:12]}"
+        collection.add(
+            documents=[text],
+            ids=[doc_id],
+            metadatas=[{"source": "admin_training"}]
+        )
+        return True
+    except Exception as e:
+        print(f"Admin training error: {e}")
+        return False
+
 def query_rag(user_message):
     results = collection.query(
         query_texts=[user_message],
@@ -56,7 +71,7 @@ def query_rag(user_message):
         max_tokens=1024,
         system=f"""You are a knowledgeable and professional assistant for Panel Specialists, Inc. (PSI), a manufacturer of wall panel systems based in Temple, Texas.
 
-Answer questions based ONLY on the provided context. Be concise, professional, and helpful.
+Use the provided context as your primary source of information. If the context does not fully cover the question, use your general knowledge about PSI products and wall panel systems to help — but be honest if you are uncertain about specific details. Never fabricate specifications or certifications.
 
 RESPONSE STYLE:
 - Write in plain prose only. Absolutely no markdown formatting.
@@ -90,7 +105,7 @@ CONTACT: Always include BOTH when directing someone to contact PSI:
 Email: info@panelspec.com
 Phone: 1-800-947-9422
 
-If the topic is NOT found in the context, respond with ONLY this exact message:
+If you truly cannot answer based on the context or your knowledge of PSI, respond with ONLY this exact message:
 \"{FALLBACK}\"
 Do NOT combine the fallback with any other information.""",
         messages=[
