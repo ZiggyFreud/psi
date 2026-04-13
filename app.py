@@ -1,3 +1,4 @@
+import re
 import random
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -13,8 +14,15 @@ CORS(app)
 
 ADMIN_TOKEN = "admin332445"
 
-GREETING_TRIGGERS = ["hi", "hello", "hey", "howdy", "good morning", "good afternoon", "good evening", "what's up", "whats up"]
-THANK_YOU_TRIGGERS = ["thank you", "thanks", "thx", "thank u", "ty", "appreciate it", "appreciate that"]
+GREETING_TRIGGERS = [
+    "hi", "hello", "hey", "howdy", "good morning", "good afternoon",
+    "good evening", "what's up", "whats up"
+]
+
+# Triggers that need whole-word matching to avoid substring false positives
+# e.g. "ty" matches "type", "thx" is fine but kept here for safety
+THANK_YOU_TRIGGERS_EXACT = ["thank you", "thanks", "appreciate it", "appreciate that"]
+THANK_YOU_TRIGGERS_WORD  = ["thx", "thank u", "ty"]  # whole-word only
 
 RESIDENTIAL_RESPONSES = [
     "Thank you for your inquiry. At this time, we focus on supplying and supporting larger-scale residential projects and work directly with builders and developers. Unfortunately, we're not set up to take on individual small-scale residential jobs. For more information, please email us at info@panelspec.com or call us at 1-800-947-9422.",
@@ -44,7 +52,15 @@ def is_greeting(message: str) -> bool:
 
 def is_thank_you(message: str) -> bool:
     msg = message.lower().strip()
-    return any(trigger in msg for trigger in THANK_YOU_TRIGGERS)
+    # Substring match is safe for longer phrases
+    for trigger in THANK_YOU_TRIGGERS_EXACT:
+        if trigger in msg:
+            return True
+    # Whole-word match required for short tokens like "ty", "thx"
+    for trigger in THANK_YOU_TRIGGERS_WORD:
+        if re.search(r'\b' + re.escape(trigger) + r'\b', msg):
+            return True
+    return False
 
 def is_residential(message: str) -> bool:
     msg = message.lower()
@@ -64,9 +80,7 @@ def handle_admin_command(message: str):
             "Example: admin332445 ADD: PSI offers custom panel sizes up to 4x10 feet."
         )
 
-    upper = body.upper()
-
-    if upper.startswith("ADD:"):
+    if body.upper().startswith("ADD:"):
         content = body[4:].strip()
         if not content:
             return "Please provide text after ADD: to store."
